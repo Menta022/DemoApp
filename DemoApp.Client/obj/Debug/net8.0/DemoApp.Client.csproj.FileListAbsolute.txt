@@ -12,3 +12,4 @@ D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\refint\DemoA
 D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.pdb
 D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.genruntimeconfig.cache
 D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\ref\DemoApp.Client.dll
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.sourcelink.json

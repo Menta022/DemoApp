@@ -34,3 +34,4 @@ D:\visual studios programas\DemoApp\DemoApp.Api\obj\Debug\net8.0\refint\DemoApp.
 D:\visual studios programas\DemoApp\DemoApp.Api\obj\Debug\net8.0\DemoApp.Api.pdb
 D:\visual studios programas\DemoApp\DemoApp.Api\obj\Debug\net8.0\DemoApp.Api.genruntimeconfig.cache
 D:\visual studios programas\DemoApp\DemoApp.Api\obj\Debug\net8.0\ref\DemoApp.Api.dll
+D:\visual studios programas\DemoApp\DemoApp.Api\obj\Debug\net8.0\DemoApp.Api.sourcelink.json

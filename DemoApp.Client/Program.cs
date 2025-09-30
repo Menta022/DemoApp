@@ -30,6 +30,7 @@ do
 
 } while (true);
 
+/*comentario para git.*/
 static async Task ObtenerClima()
 {
     Console.WriteLine("obteniendo clima...");
