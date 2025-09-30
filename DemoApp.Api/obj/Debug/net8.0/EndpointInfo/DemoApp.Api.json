@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "DemoApp.Api",
+    "version": "1.0"
+  },
+  "paths": {
+    "/notes": {
+      "post": {
+        "tags": [
+          "DemoApp.Api"
+        ],
+        "operationId": "AgregarNota",
+        "parameters": [
+          {
+            "name": "nota",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "DemoApp.Api"
+        ],
+        "operationId": "ObtenerNotasId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

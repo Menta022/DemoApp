@@ -1,0 +1,14 @@
+D:\visual studios programas\DemoApp\DemoApp.Client\bin\Debug\net8.0\DemoApp.Client.exe
+D:\visual studios programas\DemoApp\DemoApp.Client\bin\Debug\net8.0\DemoApp.Client.deps.json
+D:\visual studios programas\DemoApp\DemoApp.Client\bin\Debug\net8.0\DemoApp.Client.runtimeconfig.json
+D:\visual studios programas\DemoApp\DemoApp.Client\bin\Debug\net8.0\DemoApp.Client.dll
+D:\visual studios programas\DemoApp\DemoApp.Client\bin\Debug\net8.0\DemoApp.Client.pdb
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.GeneratedMSBuildEditorConfig.editorconfig
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.AssemblyInfoInputs.cache
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.AssemblyInfo.cs
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.csproj.CoreCompileInputs.cache
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.dll
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\refint\DemoApp.Client.dll
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.pdb
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\DemoApp.Client.genruntimeconfig.cache
+D:\visual studios programas\DemoApp\DemoApp.Client\obj\Debug\net8.0\ref\DemoApp.Client.dll
