@@ -31,35 +31,19 @@ namespace DemoApp.Api.Implementation
             }
 
             return records;
-
-            //return lines.Select(line =>
-            //{
-            //    var parts = line.Split(',');
-            //    return new Record
-            //    {
-            //        Id = Guid.Parse(parts[0].Trim().Trim('\'', ' ')),
-            //        Note = parts[1].Trim().Trim('\'', ' ')
-            //    };
-            //}).ToList();
         }
 
-        public async Task<List<Record>> GetAllRecordsId(string id)
+        /*refactoring.*/
+
+
+        public async Task<Record?> GetRecordsById(string id)
         {
-            var lines = await File.ReadAllLinesAsync("Db.txt");
-            var idlines = lines.Where(line => line.Contains(id)).ToArray();
+            /*guard clauses*/
+            if (!Guid.TryParse(id, out var validId))
+                return default;
 
-            var records = new List<Record>();
-            foreach (var line in idlines)
-            {
-                var parts = line.Split(',');
-                records.Add(new Record
-                {
-                    Id = Guid.Parse(parts[0].Trim().Trim('\'', ' ')),
-                    Note = parts[1].Trim().Trim('\'', ' ')
-                });
-            }
-            return records;
-
+            var lines = await GetAllRecords();
+            return lines.FirstOrDefault(record => record.Id == validId);          
         }
     }
 }
