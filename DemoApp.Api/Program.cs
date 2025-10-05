@@ -33,10 +33,10 @@ app.MapPost("/notes", async (IDataAccess dataAccess, string nota) =>
 //.WithOpenApi();
 
 /*tarea.*/
-app.MapGet("/notes", async (IDataAccess dataAccess, string id) =>
+app.MapGet("/notes/{id}", async (IDataAccess dataAccess, string id) =>
 {
-    var records = await dataAccess.GetAllRecordsId(id);
-    return Results.Ok(records);
+    var record = await dataAccess.GetRecordsById(id);
+    return record is not null ? Results.Ok(record) : Results.NotFound();
 }).WithName("ObtenerNotasId")
 .WithOpenApi();
 
