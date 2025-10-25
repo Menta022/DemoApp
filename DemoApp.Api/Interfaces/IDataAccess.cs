@@ -4,7 +4,9 @@
     {
         Task<string> CreateRecord(string note);
         Task<List<Record>> GetAllRecords();
-        Task<Record?> GetRecordsById(string id);
+        Task<Record?> GetRecordsById(Guid id);
+        Task<Record?> ModificarRecord(Guid id, string note);
+        Task DeleteRecord(Guid id);
     }
 
     public class Record

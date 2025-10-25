@@ -31,14 +31,89 @@
         "tags": [
           "DemoApp.Api"
         ],
+        "operationId": "ObtenerNotas",
+        "parameters": [
+          {
+            "name": "value",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/notes/{id}": {
+      "get": {
+        "tags": [
+          "DemoApp.Api"
+        ],
         "operationId": "ObtenerNotasId",
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DemoApp.Api"
+        ],
+        "operationId": "modificarNota",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "note",
             "in": "query",
             "required": true,
             "schema": {
               "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "DemoApp.Api"
+        ],
+        "operationId": "Borrar",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],

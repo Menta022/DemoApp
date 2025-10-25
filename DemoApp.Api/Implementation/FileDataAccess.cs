@@ -7,13 +7,21 @@ namespace DemoApp.Api.Implementation
         public async Task<string> CreateRecord(string note)
         {
             var id = Guid.NewGuid();
-            var record = $"'{id}', '{note}'";
+            string record = parsearregistro(note, id);
             using StreamWriter writer = File.AppendText("Db.txt");
-            await writer.WriteLineAsync(record);
+            await escribirRegistro(record, writer);
             return id.ToString();
         }
 
+        private static string parsearregistro(string note, Guid id)
+        {
+            return $"'{id}', '{note}'";
+        }
 
+        private static async Task escribirRegistro(string record, StreamWriter writer)
+        {
+            await writer.WriteLineAsync(record);
+        }
 
         public async Task<List<Record>> GetAllRecords()
         {
@@ -33,17 +41,54 @@ namespace DemoApp.Api.Implementation
             return records;
         }
 
-        /*refactoring.*/
-
-
-        public async Task<Record?> GetRecordsById(string id)
+        public async Task<Record?> ModificarRecord(Guid id, string note)
         {
-            /*guard clauses*/
-            if (!Guid.TryParse(id, out var validId))
-                return default;
-
             var lines = await GetAllRecords();
-            return lines.FirstOrDefault(record => record.Id == validId);          
+            var record = lines.FirstOrDefault(record => record.Id == id);
+
+
+            if (record == null)
+            {
+                return null;
+            }
+
+            record.Note = note;
+            using StreamWriter writer = await actualizarRegistros(lines);
+
+            return record;
+        }
+
+        private static async Task<StreamWriter> actualizarRegistros(List<Record> lines)
+        {
+            // eliminar archivo db original
+            File.Delete("Db.txt");
+            StreamWriter writer = File.AppendText("Db.txt");
+
+            foreach (var line in lines)
+            {
+                await escribirRegistro(parsearregistro(line.Note, line.Id), writer);
+            }
+
+            return writer;
+        }
+
+        public async Task DeleteRecord(Guid id) 
+        { 
+            var lines = await GetAllRecords();
+            var record = lines.FirstOrDefault(record => record.Id == id);
+            if (record == null)
+            {
+                return;
+            }
+            lines.Remove(record);
+            using StreamWriter writer = await actualizarRegistros(lines);
+        }
+
+        /*refactoring.*/
+        public async Task<Record?> GetRecordsById(Guid id)
+        {
+            var lines = await GetAllRecords();
+            return lines.FirstOrDefault(record => record.Id == id);
         }
     }
 }

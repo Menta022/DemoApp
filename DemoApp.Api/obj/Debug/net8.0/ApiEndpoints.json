@@ -24,15 +24,38 @@
   },
   {
     "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_1",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_2",
     "RelativePath": "notes",
     "HttpMethod": "GET",
     "IsController": false,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "value",
         "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "ObtenerNotas"
+  },
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_1",
+    "RelativePath": "notes/{id}",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
@@ -44,5 +67,56 @@
       }
     ],
     "EndpointName": "ObtenerNotasId"
+  },
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_3",
+    "RelativePath": "notes/{id}",
+    "HttpMethod": "PUT",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "note",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "modificarNota"
+  },
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_4",
+    "RelativePath": "notes/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "Borrar"
   }
 ]

@@ -1,5 +1,7 @@
 using DemoApp.Api.Implementation;
 using DemoApp.Api.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,12 +35,35 @@ app.MapPost("/notes", async (IDataAccess dataAccess, string nota) =>
 //.WithOpenApi();
 
 /*tarea.*/
-app.MapGet("/notes/{id}", async (IDataAccess dataAccess, string id) =>
+app.MapGet("/notes/{id}", async (IDataAccess dataAccess, Guid id) =>
 {
     var record = await dataAccess.GetRecordsById(id);
     return record is not null ? Results.Ok(record) : Results.NotFound();
 }).WithName("ObtenerNotasId")
 .WithOpenApi();
+
+app.MapGet("/notes", async (IDataAccess dataAccess, [FromQuery] string? value) =>
+{
+    var records = await dataAccess.GetAllRecords();
+    var filteredRecords = records.Where(record => value is null || record.Note.Contains(value)).ToList();
+    return Results.Ok(filteredRecords);
+}).WithName("ObtenerNotas")
+.WithOpenApi();
+
+app.MapPut("/notes/{id}", async (IDataAccess dataAccess, Guid id, string note) =>
+{
+var record = await dataAccess.ModificarRecord(id, note);
+    return record is not null ? Results.Ok(record) : Results.NotFound();
+}).WithName("modificarNota")
+.WithOpenApi();
+
+app.MapDelete("/notes/{id}", async (IDataAccess dataAccess, Guid id) =>
+{
+    await dataAccess.DeleteRecord(id);
+}).WithName("Borrar")
+.WithOpenApi();
+
+
 
 /*tarea: crear metodo getrecordbyid en interface,
  crear el metod en clase filedataaccess.
