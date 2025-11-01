@@ -52,7 +52,7 @@ app.MapGet("/notes", async (IDataAccess dataAccess, [FromQuery] string? value) =
 
 app.MapPut("/notes/{id}", async (IDataAccess dataAccess, Guid id, string note) =>
 {
-var record = await dataAccess.ModificarRecord(id, note);
+    var record = await dataAccess.ModificarRecord(id, note);
     return record is not null ? Results.Ok(record) : Results.NotFound();
 }).WithName("modificarNota")
 .WithOpenApi();

@@ -1,10 +1,49 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using DemoApp.Client;
+using System.Text;
+using System.Text.Json;
 
 Console.WriteLine("Cliente Linea de comandos");
 
+// http://localhost:5088/
 
-do 
+static async Task ListarNotas()
+{
+    Console.WriteLine("lista de Db.txt");
+    using var httpClient2 = new HttpClient();
+    var responsedb = await httpClient2.GetAsync("http://localhost:5088/notes");
+    responsedb.EnsureSuccessStatusCode();
+    var listanotas = await responsedb.Content.ReadAsStringAsync();
+    var notas = JsonSerializer.Deserialize<List<Notas>>(listanotas);
+
+    foreach (var lista in notas)
+    {
+        Console.WriteLine($"{lista.id}, {lista.note}");
+    }
+    
+    //Console.WriteLine(listanotas);
+
+}
+
+await ListarNotas();
+
+static async Task AgregarNotas()
+{
+    Console.WriteLine("escriba su nota");
+    string nota =  Console.ReadLine();
+    using var httpClient = new HttpClient();
+    var response = await httpClient.PostAsync($"http://localhost:5088/notes?nota={Uri.EscapeDataString(nota)}", null);
+    /* estoy mandando los datos desde la url no al body del endpoint. */
+
+    response.EnsureSuccessStatusCode();
+    await ListarNotas();
+    
+}
+
+await AgregarNotas();
+
+//==================================================================================
+do
 {
     
     Console.WriteLine("escriba comando a realizar.");
